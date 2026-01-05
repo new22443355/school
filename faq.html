@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Часто задаваемые вопросы о репетиторских услугах">
+    <meta name="keywords" content="FAQ, вопросы, ответы, репетитор, обучение">
+    <title>Часто задаваемые вопросы (FAQ)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.2);
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.2em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        
+        .faq-section {
+            margin-bottom: 30px;
+        }
+        
+        .faq-category {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #ecf0f1;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            background: #f8f9fa;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+        
+        .faq-question strong {
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5em;
+            color: #3498db;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: white;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .faq-answer ul {
+            margin: 10px 0;
+            padding-left: 25px;
+            color: #555;
+        }
+        
+        .faq-answer li {
+            margin: 8px 0;
+        }
+        
+        .contact-box {
+            background: #e8f4f8;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .contact-box h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .contact-box p {
+            color: #555;
+            margin: 10px 0;
+        }
+        
+        .contact-box a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-link:hover {
+            background-color: #2980b9;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background: #2980b9;
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .faq-question strong {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>❓ Часто задаваемые вопросы</h1>
+        <p class="subtitle">Ответы на популярные вопросы о наших услугах</p>
+        
+        <div class="faq-section">
+            <div class="faq-category">📋 Общие вопросы</div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Как проходят занятия?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Занятия проходят онлайн через платформы PruffMe или Zoom. Вы получаете ссылку на занятие заранее. Все занятия записываются, и вы получаете доступ к видеозаписям.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Какое оборудование нужно для занятий?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Для занятий вам понадобится:</p>
+                    <ul>
+                        <li>Компьютер, планшет или смартфон</li>
+                        <li>Стабильное подключение к интернету</li>
+                        <li>Микрофон и камера (встроенные или внешние)</li>
+                        <li>Наушники (рекомендуется для лучшего качества звука)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Можно ли посетить пробное занятие?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Да! Первое пробное занятие длительностью 60 минут предоставляется бесплатно. На пробном занятии мы познакомимся, определим уровень знаний и составим индивидуальный план обучения.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-section">
+            <div class="faq-category">💰 Оплата и цены</div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Как производится оплата?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Оплата производится на 100% предоплатной основе за месяц обучения. Принимаем оплату банковским переводом, картой или через платежные системы. Детали оплаты высылаем в WhatsApp после пробного занятия.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Можно ли вернуть деньги, если не устроит?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Согласно договору-оферте, возврат денежных средств после оплаты не производится. Однако вы получаете полный доступ ко всем оплаченным занятиям и их видеозаписям до окончания периода оплаты.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Меняется ли стоимость в течение года?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Стоимость может изменяться, но мы уведомляем об этом за 3 календарных дня до изменения цены. При этом стоимость уже оплаченных занятий не изменяется.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-section">
+            <div class="faq-category">📅 Расписание и организация</div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Как формируется расписание?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>После пробного занятия мы с вами согласовываем удобное время для регулярных занятий. Расписание сохраняется за вами в течение 3 дней после пробного занятия при условии оплаты.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Можно ли перенести занятие?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Перенос или отмена занятия со стороны ученика не допускается. Все занятия записываются на видео и высылаются вам. Если вы не смогли присутствовать, занятие считается проведенным, но вы получаете видеозапись.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Что если я опоздаю на занятие?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Занятие начинается в назначенное время. Если вы опаздываете, время занятия не продлевается. Рекомендуем подключаться за 5 минут до начала, чтобы проверить связь и оборудование.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Сколько длится одно занятие?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Продолжительность занятия зависит от выбранного вами тарифа и может составлять 60 или 90 минут.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-section">
+            <div class="faq-category">📚 Обучение и материалы</div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Какие материалы используются на занятиях?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Мы используем современные учебные материалы, пробные варианты ЕГЭ и ОГЭ, интерактивные задания. Все материалы предоставляются бесплатно в электронном виде.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Есть ли домашние задания?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Да, после каждого занятия выдается домашнее задание. Мы проверяем его и даем обратную связь. Домашние задания важны для закрепления материала.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Как отслеживается прогресс?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Мы регулярно проводим проверочные работы и даем родителям обратную связь о прогрессе ученика. Также доступны видеозаписи всех занятий для самоконтроля.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-section">
+            <div class="faq-category">🔒 Безопасность и конфиденциальность</div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Как защищены мои персональные данные?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Мы соблюдаем требования Федерального закона № 152-ФЗ «О персональных данных». Все данные хранятся в защищенном виде и не передаются третьим лицам. Подробнее в нашей <a href="privacy.html">Политике конфиденциальности</a>.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <strong>Сохраняются ли видеозаписи занятий?</strong>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Да, все занятия записываются. Видеозаписи хранятся в течение периода оплаты и доступны только вам через защищенные каналы связи.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-box">
+            <h3>Не нашли ответ на свой вопрос?</h3>
+            <p>Свяжитесь с нами любым удобным способом:</p>
+            <p>📱 Telegram: <a href="https://t.me/only5only">@only5only</a></p>
+            <p>📧 Email: <a href="mailto:gyd8@mail.ru">gyd8@mail.ru</a></p>
+            <p>📞 Телефон: <a href="tel:+79096880631">+7 (909) 688-06-31</a></p>
+        </div>
+        
+        <a href="index.html" class="back-link">← Вернуться на главную</a>
+    </div>
+    
+    <a href="#" class="back-to-top" title="Наверх">↑</a>
+    
+    <script>
+        // Раскрытие/закрытие вопросов
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                const wasActive = item.classList.contains('active');
+                
+                // Закрыть все открытые вопросы
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Открыть текущий, если он не был открыт
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Плавная прокрутка наверх
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
