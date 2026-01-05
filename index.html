@@ -375,6 +375,30 @@
             color: white;
             margin-bottom: 25px;
             text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        
+        .subject-title:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .subject-title:active {
+            transform: scale(0.98);
+        }
+        
+        .toggle-icon {
+            font-size: 0.8em;
+            transition: transform 0.3s;
+        }
+        
+        .subject-title.active .toggle-icon {
+            transform: rotate(180deg);
         }
         
         .subject-title.math {
@@ -398,6 +422,15 @@
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
             margin-top: 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+        }
+        
+        .schedule-grid.show {
+            max-height: 5000px;
+            opacity: 1;
         }
         
         .schedule-card {
@@ -654,13 +687,17 @@
                     <p><strong>⏰ Все занятия проводятся по московскому времени!</strong></p>
                     <p>📅 Занятия проходят 2-3 раза в неделю в зависимости от класса</p>
                     <p>💻 Формат: онлайн через Zoom или PruffMe</p>
+                    <p style="margin-top: 15px; font-size: 1.1em; color: #3498db;"><strong>👆 Нажмите на предмет, чтобы увидеть расписание по классам</strong></p>
                 </div>
                 
                 <!-- Математика -->
                 <div class="schedule-subject">
-                    <h3 class="subject-title math">📐 Математика</h3>
+                    <h3 class="subject-title math" onclick="toggleSubject(this)">
+                        <span>📐 Математика</span>
+                        <span class="toggle-icon">▼</span>
+                    </h3>
                     
-                    <div class="schedule-grid">
+                    <div class="schedule-grid" style="display: none;">
                         <div class="schedule-card">
                             <div class="class-badge">1 класс</div>
                             <div class="schedule-time">
@@ -788,9 +825,12 @@
                 
                 <!-- Русский язык -->
                 <div class="schedule-subject">
-                    <h3 class="subject-title russian">📝 Русский язык</h3>
+                    <h3 class="subject-title russian" onclick="toggleSubject(this)">
+                        <span>📝 Русский язык</span>
+                        <span class="toggle-icon">▼</span>
+                    </h3>
                     
-                    <div class="schedule-grid">
+                    <div class="schedule-grid" style="display: none;">
                         <div class="schedule-card">
                             <div class="class-badge">5 класс</div>
                             <div class="schedule-time">
@@ -845,9 +885,12 @@
                 
                 <!-- Информатика -->
                 <div class="schedule-subject">
-                    <h3 class="subject-title informatics">💻 Информатика</h3>
+                    <h3 class="subject-title informatics" onclick="toggleSubject(this)">
+                        <span>💻 Информатика</span>
+                        <span class="toggle-icon">▼</span>
+                    </h3>
                     
-                    <div class="schedule-grid">
+                    <div class="schedule-grid" style="display: none;">
                         <div class="schedule-card highlight">
                             <div class="class-badge">9 класс ОГЭ</div>
                             <div class="schedule-time">
@@ -862,9 +905,12 @@
                 
                 <!-- Обществознание -->
                 <div class="schedule-subject">
-                    <h3 class="subject-title society">👥 Обществознание</h3>
+                    <h3 class="subject-title society" onclick="toggleSubject(this)">
+                        <span>👥 Обществознание</span>
+                        <span class="toggle-icon">▼</span>
+                    </h3>
                     
-                    <div class="schedule-grid">
+                    <div class="schedule-grid" style="display: none;">
                         <div class="schedule-card highlight">
                             <div class="class-badge">9 класс ОГЭ</div>
                             <div class="schedule-time">
@@ -959,5 +1005,44 @@
     </div>
     
     <a href="#" class="back-to-top" title="Наверх">↑</a>
+    
+    <script>
+        // Функция для переключения отображения расписания предмета
+        function toggleSubject(element) {
+            const scheduleGrid = element.nextElementSibling;
+            const isActive = element.classList.contains('active');
+            
+            // Закрыть все другие предметы
+            document.querySelectorAll('.subject-title').forEach(title => {
+                if (title !== element) {
+                    title.classList.remove('active');
+                    const grid = title.nextElementSibling;
+                    grid.classList.remove('show');
+                    grid.style.display = 'none';
+                }
+            });
+            
+            // Переключить текущий предмет
+            if (isActive) {
+                element.classList.remove('active');
+                scheduleGrid.classList.remove('show');
+                setTimeout(() => {
+                    scheduleGrid.style.display = 'none';
+                }, 300);
+            } else {
+                element.classList.add('active');
+                scheduleGrid.style.display = 'grid';
+                setTimeout(() => {
+                    scheduleGrid.classList.add('show');
+                }, 10);
+            }
+        }
+        
+        // Плавная прокрутка наверх
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
