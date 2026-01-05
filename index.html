@@ -69,42 +69,54 @@
             <section id="services">
                 <h2>Мои услуги</h2>
                 <div class="services-grid">
-                    <div class="service-card">
-                        <h3>📐 Математика</h3>
-                        <ul>
-                            <li>Подготовка с 1 по 11 класс</li>
-                            <li>Подготовка к ЕГЭ (Профиль/База)</li>
-                            <li>Подготовка к ОГЭ 9 класс</li>
-                            <li>Устранение пробелов в знаниях</li>
-                        </ul>
-                    </div>
+                    <a href="#math-schedule" class="service-card-link">
+                        <div class="service-card">
+                            <h3>📐 Математика</h3>
+                            <ul>
+                                <li>Подготовка с 1 по 11 класс</li>
+                                <li>Подготовка к ЕГЭ (Профиль/База)</li>
+                                <li>Подготовка к ОГЭ 9 класс</li>
+                                <li>Устранение пробелов в знаниях</li>
+                            </ul>
+                            <div class="service-link-hint">→ Смотреть расписание и цены</div>
+                        </div>
+                    </a>
                     
-                    <div class="service-card">
-                        <h3>📝 Русский язык</h3>
-                        <ul>
-                            <li>Подготовка с 5 по 11 класс</li>
-                            <li>Подготовка к ОГЭ 9 класс</li>
-                            <li>Подготовка к ЕГЭ 11 класс</li>
-                            <li>Грамматика и орфография</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="service-card">
-                        <h3>💻 Информатика</h3>
-                        <ul>
-                            <li>Основы программирования</li>
-                            <li>Подготовка к ОГЭ</li>
-                            <li>Подготовка к ЕГЭ</li>
+                    <a href="#russian-schedule" class="service-card-link">
+                        <div class="service-card">
+                            <h3>📝 Русский язык</h3>
+                            <ul>
+                                <li>Подготовка с 5 по 11 класс</li>
+                                <li>Подготовка к ОГЭ 9 класс</li>
+                                <li>Подготовка к ЕГЭ 11 класс</li>
+                                <li>Грамматика и орфография</li>
+                            </ul>
+                            <div class="service-link-hint">→ Смотреть расписание и цены</div>
+                     a href="#informatics-schedule" class="service-card-link">
+                        <div class="service-card">
+                            <h3>💻 Информатика</h3>
+                            <ul>
+                                <li>Основы программирования</li>
+                                <li>Подготовка к ОГЭ</li>
+                                <li>Подготовка к ЕГЭ</li>
+                                <li>Алгоритмы и логика</li>
+                            </ul>
+                            <div class="service-link-hint">→ Смотреть расписание и цены</div>
+                        </div>
+                    </a   <li>Подготовка к ЕГЭ</li>
                             <li>Алгоритмы и логика</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="service-card">
-                        <h3>👥 Обществознание</h3>
-                        <ul>
-                            <li>Подготовка к ОГЭ 9 класс</li>
-                            <li>Подготовка к ЕГЭ 11 класс</li>
-                            <li>Все разделы предмета</li>
+                     a href="#society-schedule" class="service-card-link">
+                        <div class="service-card">
+                            <h3>👥 Обществознание</h3>
+                            <ul>
+                                <li>Подготовка к ОГЭ 9 класс</li>
+                                <li>Подготовка к ЕГЭ 11 класс</li>
+                                <li>Все разделы предмета</li>
+                                <li>Интенсивная подготовка</li>
+                            </ul>
+                            <div class="service-link-hint">→ Смотреть расписание и цены</div>
+                        </div>
+                    </a   <li>Все разделы предмета</li>
                             <li>Интенсивная подготовка</li>
                         </ul>
                     </div>
@@ -199,8 +211,8 @@
                 </div>
                 
                 <!-- Математика -->
-                <div class="schedule-subject">
-                    <h3 class="subject-title math" onclick="toggleSubject(this)">
+                <div class="schedule-subject" id="math-schedule">
+                    <h3 class="subject-title math" onclick="toggleSubject(this)" data-subject="math">
                         <span>📐 Математика</span>
                         <span class="toggle-icon">▼</span>
                     </h3>
@@ -332,8 +344,8 @@
                 </div>
                 
                 <!-- Русский язык -->
-                <div class="schedule-subject">
-                    <h3 class="subject-title russian" onclick="toggleSubject(this)">
+                <div class="schedule-subject" id="russian-schedule">
+                    <h3 class="subject-title russian" onclick="toggleSubject(this)" data-subject="russian">
                         <span>📝 Русский язык</span>
                         <span class="toggle-icon">▼</span>
                     </h3>
@@ -392,8 +404,8 @@
                 </div>
                 
                 <!-- Информатика -->
-                <div class="schedule-subject">
-                    <h3 class="subject-title informatics" onclick="toggleSubject(this)">
+                <div class="schedule-subject" id="informatics-schedule">
+                    <h3 class="subject-title informatics" onclick="toggleSubject(this)" data-subject="informatics">
                         <span>💻 Информатика</span>
                         <span class="toggle-icon">▼</span>
                     </h3>
@@ -412,8 +424,8 @@
                 </div>
                 
                 <!-- Обществознание -->
-                <div class="schedule-subject">
-                    <h3 class="subject-title society" onclick="toggleSubject(this)">
+                <div class="schedule-subject" id="society-schedule">
+                    <h3 class="subject-title society" onclick="toggleSubject(this)" data-subject="society">
                         <span>👥 Обществознание</span>
                         <span class="toggle-icon">▼</span>
                     </h3>

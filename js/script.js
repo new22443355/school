@@ -39,6 +39,57 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Плавная прокрутка для якорных ссылок
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            
+            e.preventDefault();
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                // Если это ссылка на расписание предмета, открываем его
+                if (targetId.endsWith('-schedule')) {
+                    const subjectTitle = targetElement.querySelector('.subject-title');
+                    if (subjectTitle && !subjectTitle.classList.contains('active')) {
+                        // Небольшая задержка перед раскрытием для плавности
+                        setTimeout(() => {
+                            toggleSubject(subjectTitle);
+                        }, 300);
+                    }
+                }
+                
+                // Плавная прокрутка к элементу
+                targetElement.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Проверка URL при загрузке страницы (если есть якорь)
+    if (window.location.hash) {
+        const targetId = window.location.hash.substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement && targetId.endsWith('-schedule')) {
+            const subjectTitle = targetElement.querySelector('.subject-title');
+            if (subjectTitle) {
+                // Задержка для корректной прокрутки после загрузки страницы
+                setTimeout(() => {
+                    toggleSubject(subjectTitle);
+                    targetElement.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 500);
+            }
+        }
+    }
+    
     // Обработка формы обратной связи
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
