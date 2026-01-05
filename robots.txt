@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Запрещаем индексацию служебных файлов
+Disallow: /css/
+Disallow: /js/
+
+# Указываем путь к sitemap
+Sitemap: https://new22443355.github.io/school/sitemap.xml
