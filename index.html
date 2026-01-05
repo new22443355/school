@@ -353,9 +353,49 @@
             <section id="contact">
                 <h2>Как записаться</h2>
                 <div class="contact-section">
-                    <p style="text-align: center; font-size: 1.2em; margin-bottom: 20px;">
+                    <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px;">
                         <strong>Свяжитесь со мной удобным способом:</strong>
                     </p>
+                    
+                    <!-- Форма обратной связи -->
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form" id="contactForm">
+                            <h3 style="text-align: center; margin-bottom: 20px; color: #2c3e50;">📝 Форма обратной связи</h3>
+                            <div class="form-group">
+                                <label for="name">Ваше имя *</label>
+                                <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Телефон *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Предмет</label>
+                                <select id="subject" name="subject">
+                                    <option value="">Выберите предмет</option>
+                                    <option value="math">Математика</option>
+                                    <option value="russian">Русский язык</option>
+                                    <option value="informatics">Информатика</option>
+                                    <option value="society">Обществознание</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Сообщение</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Расскажите о целях обучения, классе ученика..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Отправить заявку</button>
+                            <p class="form-note">* Обязательные поля</p>
+                        </form>
+                    </div>
+                    
+                    <div style="text-align: center; margin: 30px 0; font-size: 1.1em; color: #7f8c8d;">
+                        <strong>или</strong>
+                    </div>
+                    
                     <div class="contact-grid">
                         <div class="contact-item">
                             <div class="contact-icon">📱</div>

@@ -38,4 +38,44 @@ document.addEventListener('DOMContentLoaded', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+    
+    // Обработка формы обратной связи
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Формируем текст для Telegram
+            let telegramText = `📝 Новая заявка с сайта!\n\n`;
+            telegramText += `👤 Имя: ${name}\n`;
+            telegramText += `📱 Телефон: ${phone}\n`;
+            if (subject) {
+                const subjects = {
+                    'math': 'Математика',
+                    'russian': 'Русский язык',
+                    'informatics': 'Информатика',
+                    'society': 'Обществознание'
+                };
+                telegramText += `📚 Предмет: ${subjects[subject]}\n`;
+            }
+            if (message) {
+                telegramText += `💬 Сообщение: ${message}`;
+            }
+            
+            // Открываем Telegram с предзаполненным текстом
+            const telegramUrl = `https://t.me/only5only?text=${encodeURIComponent(telegramText)}`;
+            window.open(telegramUrl, '_blank');
+            
+            // Показываем сообщение пользователю
+            alert('Спасибо за заявку! Сейчас откроется Telegram для отправки сообщения.');
+            
+            // Очищаем форму
+            contactForm.reset();
+        });
+    }
 });
